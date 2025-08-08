@@ -14,15 +14,14 @@ pipeline {
 	    JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
 
-	 stages {
+	stages {
         stage('checkout') {
             steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sooribalan/register-app.git']])
             }
         }
-    }
-	
-    stages{
+    
+	stages{
         stage("Cleanup Workspace"){
                 steps {
                 cleanWs()
